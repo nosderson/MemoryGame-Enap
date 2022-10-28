@@ -39,6 +39,7 @@ class MemoryGame {
 
       const imgBack = document.createElement("img"); // <img />
       imgBack.src = element.verso; //<img src="./assets/fe.svg" />
+      imgBack.alt ="Carta Virada Hacker"
       imgBack.className = "show cardBack";
 
       board.appendChild(imgFront);
