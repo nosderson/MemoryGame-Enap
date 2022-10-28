@@ -1,34 +1,27 @@
-// MANIPULAÇÃO DO DOM
-//instanciar a minha classe
-const game = new MemoryGame();
-
 //capturando todos os elementos de html
 const startScreen = document.getElementById("startScreen");
 const inputName = document.getElementById("inputName");
 const gameScreen = document.getElementById("gameScreen");
 const gameScore = document.getElementById("gameScore");
 const playerName = document.getElementById("name");
-const points = document.getElementById("points");
 const board = document.getElementById("board");
 const btnStart = document.getElementById("btnStart");
 
 //adicionar o event listener no btnStart
 btnStart.addEventListener("click", () => {
+  //instanciar a minha classe
+  const game = new MemoryGame(inputName.value, 5);
   // startScreen desapareça
   startScreen.classList.add("hide");
   // mostrar o gameScore
   gameScore.className = "show";
 
-  game.player = inputName.value; //setando o nome do jogador na minha classe
-  points.innerText = game.points; // setando o numero de tentativos no meu html
-  playerName.innerText = game.player; // setando o nome do jogador no meu html
-
   game.renderDeck();
 
-  settingUpGame();
+  settingUpGame(game);
 });
 
-function settingUpGame() {
+function settingUpGame(game) {
   // capturar todas as cardsBack
   // adicionar a ela um eventlistener
   const allCardsBack = document.querySelectorAll(".cardBack");

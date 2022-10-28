@@ -1,20 +1,23 @@
 // CLASSE
 
 class MemoryGame {
-  constructor() {
-    this.player = "";
-    this.points = 5;
-    this.deck = [
-      "./assets/harmonia.svg",
-      "./assets/poder.svg",
-      "./assets/projetar.svg",
-      "./assets/refletir.svg",
-      "./assets/harmonia.svg",
-      "./assets/poder.svg",
-      "./assets/projetar.svg",
-      "./assets/refletir.svg",
-    ];
+  constructor(player, points) {
+    this.player = player;
+    this.points = points;
+    const carta1 = new deck(1, "./assets/harmonia.svg", "./assets/fe.svg")
+    const carta2 = new deck(2, "./assets/poder.svg", "./assets/fe.svg")
+    const carta3 = new deck(3, "./assets/projetar.svg", "./assets/fe.svg")
+    const carta4 = new deck(4, "./assets/refletir.svg", "./assets/fe.svg")
+    const carta5 = new deck(1, "./assets/harmonia.svg", "./assets/fe.svg")
+    const carta6 = new deck(2, "./assets/poder.svg", "./assets/fe.svg")
+    const carta7 = new deck(3, "./assets/projetar.svg", "./assets/fe.svg")
+    const carta8 = new deck(4, "./assets/refletir.svg", "./assets/fe.svg")
+    this.deck = [carta1, carta2, carta3, carta4, carta5, carta6, carta7, carta8];
+    console.log (deck)
     this.selectedCards = [];
+    const pointsHTML = document.getElementById("points");
+    pointsHTML.innerText = this.points; // setando o numero de tentativos no meu html
+    playerName.innerText = this.player; // setando o nome do jogador no meu html
   }
 
   renderDeck() {
@@ -31,11 +34,11 @@ class MemoryGame {
     //iterar pela array do deck e criar as minhas cartas
     this.deck.forEach((element) => {
       const imgFront = document.createElement("img"); // <img />
-      imgFront.src = element; // <img src="./assets/refletir.svg" />
+      imgFront.src = element.source; // <img src="./assets/refletir.svg" />
       imgFront.className = "hide cardFront";
 
       const imgBack = document.createElement("img"); // <img />
-      imgBack.src = "./assets/fe.svg"; //<img src="./assets/fe.svg" />
+      imgBack.src = element.verso; //<img src="./assets/fe.svg" />
       imgBack.className = "show cardBack";
 
       board.appendChild(imgFront);
@@ -111,5 +114,16 @@ class MemoryGame {
       console.log("Venceu!!");
       alert(`${this.player} você venceu!!`);
     }
+  }
+}
+
+// CLASSE
+class deck {
+  constructor(tipo, source, verso) {
+    this.tpo = tipo;
+    this.source = source;
+    this.verso = verso;
+    this.selecionada = false;
+      
   }
 }
