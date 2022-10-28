@@ -5,10 +5,9 @@ const gameScreen = document.getElementById("gameScreen");
 const gameScore = document.getElementById("gameScore");
 const playerName = document.getElementById("name");
 const board = document.getElementById("board");
-const btnStart = document.getElementById("btnStart");
 
-//adicionar o event listener no btnStart
-btnStart.addEventListener("click", () => {
+//adicionar o event listener do submit
+addEventListener("submit", () => {
   //instanciar a minha classe
   const game = new MemoryGame(inputName.value, 5);
   // startScreen desapareça

@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- linkando o css -->
-    <link rel="stylesheet" href="./styles/style.css">
-    <title>Memory Game - ENAP</title>
-  </head>
-  <body>
-    <article id="startScreen" class="startScreen">
-      <h1>Jogo da Memória</h1>
+<link>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- linkando o css -->
+<link rel="stylesheet" href="./styles/style.css">
+<title>Memory Game - ENAP</title>
+</head>
 
-      <div>
-        <label>Qual é o seu nome?</label>
-        <input
-          type="text"
-          placeholder="Digite aqui o seu nome"
-          id="inputName"
-        />
-        <button id="btnStart">Jogar!!</button>
-      </div>
-    </article>
+<body>
+  <article id="startScreen" class="startScreen">
+    <h1>Jogo da Memória</h1>
 
-    <article id="gameScreen">
-      <section id="gameScore" class="hide">
-        <p>Olá, <span id="name">nomeDoJogador</span></p>
-        <p>Você tem <span id="points">xxx</span> tentativas!</p>
-      </section>
+    <div>
+      <form>
+        <fieldset>
+          <label>Qual é o seu nome?</label>
+          <input type="text" required aria-label="Digite seu nome" placeholder="Digite aqui o seu nome"
+            id="inputName" />
+          <button type="submit" id="btnStart">Jogar!!</button>
+        </fieldset>
+      </form>
+    </div>
+  </article>
 
-      <div id="board" class="board"></div>
-    </article>
+  <article id="gameScreen">
+    <section id="gameScore" class="hide">
+      <p>Olá, <span id="name">nomeDoJogador</span></p>
+      <p>Você tem <span id="points">xxx</span> tentativas!</p>
+    </section>
+
+    <div id="board" class="board"></div>
+  </article>
 
 
 
-    <!-- linkando meus scripts -> js -->
-    <script src="./js/MemoryGame.js"></script>
-    <script src="./js/index.js"></script>
-  </body>
+  <!-- linkando meus scripts -> js -->
+  <script src="./js/MemoryGame.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+
 </html>
