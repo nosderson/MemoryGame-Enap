@@ -1,4 +1,3 @@
-var x;
 //capturando todos os elementos de html
 const startScreen = document.getElementById("startScreen");
 const inputName = document.getElementById("inputName");
@@ -26,20 +25,5 @@ function settingUpGame(game) {
   // adicionar a ela um eventlistener
   const allCardsBack = document.querySelectorAll(".cardBack");
 
-  allCardsBack.forEach((cardBack) => {
-    cardBack.addEventListener("click", () => {
-      //o que acontece quando a carta é clicada
-
-      //const cardFront = cardBack.previousElementSibling;
-
-      //mostra a carta da frente
-      //cardFront.className = "show cardFront";
-
-      //esconde a carta de trás (carta verde)
-      //cardBack.className = "hide cardBack";
-     
-      game.flipCard();
-
-    });
-  });
+  allCardsBack.forEach(cardBack => cardBack.addEventListener("click", event => game.flipCard(event, "jj")));
 }
