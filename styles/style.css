@@ -41,6 +41,7 @@
 
 #inputName {
   width: 50vw;
+  padding: 6px;
 }
 
 #btnStart {
@@ -66,5 +67,5 @@ fieldset {
 
 /* esconde o element html */
 .hide {
-  display: none !important;
+  display: none;
 }

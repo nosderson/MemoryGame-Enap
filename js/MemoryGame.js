@@ -1,20 +1,19 @@
+var x;
 // CLASSE
 
 class MemoryGame {
   constructor(player, points) {
     this.player = player;
     this.points = points;
-    const carta1 = new deck(1, "./assets/harmonia.svg", "./assets/fe.svg")
-    const carta2 = new deck(2, "./assets/poder.svg", "./assets/fe.svg")
-    const carta3 = new deck(3, "./assets/projetar.svg", "./assets/fe.svg")
-    const carta4 = new deck(4, "./assets/refletir.svg", "./assets/fe.svg")
-    const carta5 = new deck(1, "./assets/harmonia.svg", "./assets/fe.svg")
-    const carta6 = new deck(2, "./assets/poder.svg", "./assets/fe.svg")
-    const carta7 = new deck(3, "./assets/projetar.svg", "./assets/fe.svg")
-    const carta8 = new deck(4, "./assets/refletir.svg", "./assets/fe.svg")
+    const carta1 = new deck(1, 1, "./assets/harmonia.svg", "./assets/fe.svg")
+    const carta2 = new deck(2, 2, "./assets/poder.svg", "./assets/fe.svg")
+    const carta3 = new deck(3, 3, "./assets/projetar.svg", "./assets/fe.svg")
+    const carta4 = new deck(4, 4, "./assets/refletir.svg", "./assets/fe.svg")
+    const carta5 = new deck(5, 1, "./assets/harmonia.svg", "./assets/fe.svg")
+    const carta6 = new deck(6, 2, "./assets/poder.svg", "./assets/fe.svg")
+    const carta7 = new deck(7, 3, "./assets/projetar.svg", "./assets/fe.svg")
+    const carta8 = new deck(8, 4, "./assets/refletir.svg", "./assets/fe.svg")
     this.deck = [carta1, carta2, carta3, carta4, carta5, carta6, carta7, carta8];
-    console.log (deck)
-    this.selectedCards = [];
     const pointsHTML = document.getElementById("points");
     pointsHTML.innerText = this.points; // setando o numero de tentativos no meu html
     playerName.innerText = this.player; // setando o nome do jogador no meu html
@@ -26,7 +25,7 @@ class MemoryGame {
       return Math.random() - 0.5;
     });
 
-    console.log(this.deck);
+
 
     //capturar o board
     const board = document.getElementById("board");
@@ -34,21 +33,22 @@ class MemoryGame {
     //iterar pela array do deck e criar as minhas cartas
     this.deck.forEach((element) => {
       const imgFront = document.createElement("img"); // <img />
+      imgFront.id = element.id;
       imgFront.src = element.source; // <img src="./assets/refletir.svg" />
-      imgFront.className = "hide cardFront";
-
-      const imgBack = document.createElement("img"); // <img />
-      imgBack.src = element.verso; //<img src="./assets/fe.svg" />
-      imgBack.alt ="Carta Virada Hacker"
-      imgBack.className = "show cardBack";
-
+      imgFront.className = "show cardBack";
       board.appendChild(imgFront);
-      board.appendChild(imgBack);
     });
   }
 
-  flipCard(card) {
-    this.selectedCards.push(card);
+  flipCard(event) {
+    console.log("barro")
+    console.log(this.deck)
+    this.deck.find(carta => carta.id === id).selecionada = true
+    
+    
+
+
+    this.selectedCards.push(x);
 
     if (this.selectedCards.length === 2) {
       console.log("Duas cartas foram viradas. Vamos compara-las");
@@ -57,12 +57,13 @@ class MemoryGame {
   }
 
   checkPair() {
-    console.log(this.selectedCards);
-    if (this.selectedCards[0].src === this.selectedCards[1].src) {
+    console.log("oi")
+    console.log(this.selectedCards[0]);
+    if (this.selectedCards[0] === this.selectedCards[1]) {
       console.log("Cartas são iguais!!");
       // criar um indicador de que as cartas já foram viradas
-      this.selectedCards[0].classList.add("turn");
-      this.selectedCards[1].classList.add("turn");
+      //this.selectedCards[0].classList.add("turn");
+      //this.selectedCards[1].classList.add("turn");
 
       // limpar a minha array de cartas selecionadas
       this.selectedCards = [];
@@ -116,15 +117,19 @@ class MemoryGame {
       alert(`${this.player} você venceu!!`);
     }
   }
+
 }
 
 // CLASSE
 class deck {
-  constructor(tipo, source, verso) {
-    this.tpo = tipo;
+  constructor(id, tipo, source, verso) {
+    this.id = id;
+    this.tipo = tipo;
     this.source = source;
     this.verso = verso;
     this.selecionada = false;
-      
+
   }
+
+ 
 }

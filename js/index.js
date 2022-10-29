@@ -1,3 +1,4 @@
+var x;
 //capturando todos os elementos de html
 const startScreen = document.getElementById("startScreen");
 const inputName = document.getElementById("inputName");
@@ -29,17 +30,16 @@ function settingUpGame(game) {
     cardBack.addEventListener("click", () => {
       //o que acontece quando a carta é clicada
 
-      const cardFront = cardBack.previousElementSibling;
+      //const cardFront = cardBack.previousElementSibling;
 
       //mostra a carta da frente
-      cardFront.className = "show cardFront";
+      //cardFront.className = "show cardFront";
 
       //esconde a carta de trás (carta verde)
-      cardBack.className = "hide cardBack";
+      //cardBack.className = "hide cardBack";
+     
+      game.flipCard();
 
-      game.flipCard(cardFront);
-
-      points.innerText = game.points
     });
   });
 }
