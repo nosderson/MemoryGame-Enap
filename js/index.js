@@ -25,5 +25,5 @@ function settingUpGame(game) {
   // adicionar a ela um eventlistener
   const allCardsBack = document.querySelectorAll(".cardBack");
 
-  allCardsBack.forEach(cardBack => cardBack.addEventListener("click", event => game.flipCard(event, "jj")));
+  allCardsBack.forEach(cardBack => cardBack.addEventListener("click", event => game.flipCard(event)));
 }
