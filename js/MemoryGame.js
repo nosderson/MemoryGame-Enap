@@ -1,6 +1,6 @@
 // CLASSE
 class MemoryGame {
-  constructor(player, points) { 
+  constructor(player, points) {
     this.player = player;
     this.points = points;
     const carta1 = new deck(1, 1, "./assets/harmonia.svg", "harmonia")
@@ -12,11 +12,7 @@ class MemoryGame {
     const carta7 = new deck(7, 3, "./assets/projetar.svg", "projetar")
     const carta8 = new deck(8, 4, "./assets/refletir.svg", "refletir")
     this.deck = [carta1, carta2, carta3, carta4, carta5, carta6, carta7, carta8];
-    this. verso = "./assets/fe.svg" ;
-    const pointsHTML = document.getElementById("points");
-    pointsHTML.innerText = this.points; // setando o numero de tentativos no meu html
-    playerName.innerText = this.player; // setando o nome do jogador no meu html
-    
+    this.verso = "./assets/fe.svg";
   }
 
   renderDeck() {
@@ -40,7 +36,7 @@ class MemoryGame {
   }
 
   flipCard(event) {
-    const idCarta = (event.currentTarget)['id'] * 1
+    const idCarta = (event.currentTarget)['id']
     console.log(event)
     if (document.getElementById(idCarta).classList.contains("turn", "selecionado")) {
       console.log("Carta já foi selecionada")
@@ -88,8 +84,8 @@ class MemoryGame {
 
           //alterando o fundo para carta de verso
           document.getElementById(i).src = this.verso;
-           //alterando o alt para carta de verso
-           document.getElementById(i).alt = "carta virada";
+          //alterando o alt para carta de verso
+          document.getElementById(i).alt = "carta virada";
 
           document.getElementById(i).classList.add("cardBack");
 
