@@ -13,6 +13,9 @@ class MemoryGame {
     const carta8 = new deck(8, 4, "./assets/refletir.svg", "refletir")
     this.deck = [carta1, carta2, carta3, carta4, carta5, carta6, carta7, carta8];
     this.verso = "./assets/fe.svg";
+    const pointsHTML = document.getElementById("points");	
+    pointsHTML.innerText = this.points; // setando o numero de tentativos no meu html	
+    playerName.innerText = this.player; // setando o nome do jogador no meu html
   }
 
   renderDeck() {

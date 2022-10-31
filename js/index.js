@@ -5,11 +5,12 @@ const gameScreen = document.getElementById("gameScreen");
 const gameScore = document.getElementById("gameScore");
 const playerName = document.getElementById("name");
 const board = document.getElementById("board");
+const chances = 5;
 
 //adicionar o event listener do submit
 addEventListener("submit", () => {
   //instanciar a minha classe
-  const game = new MemoryGame(inputName.value, 5);
+  const game = new MemoryGame(inputName.value, chances);
   // startScreen desapareça
   startScreen.classList.add("hide");
   // mostrar o gameScore
